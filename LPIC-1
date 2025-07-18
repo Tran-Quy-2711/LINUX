@@ -88,5 +88,162 @@ tương tác với kernel và phần cứng theo cách đặc biệt.
 | `tmpfs`      | tmpfs    | Bộ nhớ RAM tạm thời             |
 
 ---
+ / : thư mục gốc , tập tin = file 
+man : cẩm nang tra cứu 
+cd : di chuyển đến thư mục 
+pwd : xem đang ở thư mục nào 
+ls : liệt kê thông tin file và thư mục 
+cat : xem nội dung tập tin 
+| Tùy chọn   | Mô tả                                           | Ví dụ kết quả                                |
+| ---------- | ----------------------------------------------- | -------------------------------------------- |
+| `uname`    | Hiển thị tên kernel (mặc định)                  | `Linux`                                      |
+| `uname -a` | Hiển thị tất cả thông tin chi tiết của hệ thống | `Linux localhost 5.4.0-80-generic ...`       |
+| `uname -r` | Hiển thị phiên bản kernel                       | `5.4.0-80-generic`                           |
+| `uname -s` | Hiển thị tên kernel                             | `Linux`                                      |
+| `uname -n` | Hiển thị hostname (tên máy)                     | `localhost`                                  |
+| `uname -v` | Hiển thị phiên bản kernel chi tiết              | `#90-Ubuntu SMP Fri Jul 9 22:49:44 UTC 2021` |
+| `uname -m` | Hiển thị kiến trúc máy (machine hardware name)  | `x86_64`                                     |
+| `uname -p` | Hiển thị kiểu CPU (processor type)              | `x86_64` hoặc `unknown`                      |
+| `uname -i` | Hiển thị phần cứng (hardware platform)          | `x86_64` hoặc `unknown`                      |
+lsmod : liệt kê các module được tải 
+modinfo: xem thông tin module 
+rmmod : gỡ bỏ module 
+modprobe : thêm module 
+modprobe -r : gỡ module 
+-> muốn xóa module thì nên gỡ phần phụ rồi đến phần chính 
+lscpu : liệt kê các thông tin của cpu 
+      -a : all
+      -b : onl
+      -c : off 
+      -p : hiển thị thông tin về CPU ở dạng dữ liệu phân tách bởi dấu phẩy 
+lspci : hiển thị các thiết bị ngoại vi cơ bản 
+      -v : hiển thị đầy đủ thông tin chi tiết 
+      -m : hiển thị thông tin dễ đọc 
+      -vmm : hiển thị thông tin đẹp , rõ ràng 
+      -t : hiển thị thông tin dạng cây 
+      -ttvmm : hiển thị thông tin dạng cây vừa có tên thiết bị
+      -k trong Linux dùng để liệt kê các thiết bị PCI cùng với thông tin về module kernel (driver) đang quản lý các thiết bị đó.
+ls /dev : hiển thị tất cả thiết bị đang chạy
+lsusb : liệt kê các thiết bị usb đang kết nối với máy tính 
+      -t : hiển thị dạng cây 
+lsblk : liệt kê các thiết bị block (ổ đĩa, phân vùng, thiết bị lưu trữ)
+      -f : liệt kê các thiết bị block (ổ đĩa, phân vùng, USB,...) kèm theo thông tin về filesystem của từng thiết bị trên Linux.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
