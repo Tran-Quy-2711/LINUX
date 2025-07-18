@@ -128,6 +128,80 @@ lsusb : liệt kê các thiết bị usb đang kết nối với máy tính
       -t : hiển thị dạng cây 
 lsblk : liệt kê các thiết bị block (ổ đĩa, phân vùng, thiết bị lưu trữ)
       -f : liệt kê các thiết bị block (ổ đĩa, phân vùng, USB,...) kèm theo thông tin về filesystem của từng thiết bị trên Linux.
+---
+
+# Quá trình khởi động Linux
+---------------------------
+
+## 1. Power On & POST (Power-On Self Test)
+
+* Khi bạn bật máy tính, BIOS/UEFI sẽ bắt đầu kiểm tra phần cứng cơ bản (RAM, CPU, thiết bị lưu trữ,...).
+* POST đảm bảo phần cứng hoạt động bình thường trước khi chuyển sang bước tiếp theo.
+
+---
+
+## 2.Bootloader (Trình tải khởi động)
+
+* BIOS/UEFI tìm thiết bị khởi động (thường là ổ cứng, USB, CD/DVD) theo thứ tự ưu tiên.
+* Tìm và tải **bootloader** từ Master Boot Record (MBR) hoặc EFI System Partition (ESP).
+* Bootloader phổ biến: **GRUB (Grand Unified Bootloader)**, LILO.
+
+### Nhiệm vụ bootloader:
+
+* Hiển thị menu lựa chọn hệ điều hành (nếu có nhiều OS).
+* Tải kernel Linux vào bộ nhớ và chuyển quyền điều khiển cho kernel.
+
+---
+
+## 3. Kernel Loading
+
+* Kernel Linux bắt đầu khởi động, kiểm tra và khởi tạo các thiết bị phần cứng cơ bản.
+* Mount hệ thống tập tin root (root filesystem).
+* Khởi động các tiến trình hệ thống cơ bản.
+
+---
+
+## 4. Init System (Quản lý tiến trình khởi động)
+
+* Kernel chuyển quyền cho **init system** (PID 1) - tiến trình đầu tiên được khởi tạo.
+* Các init system phổ biến hiện nay:
+
+  * System V init (`/sbin/init`)
+  * systemd (được sử dụng rộng rãi hiện nay)
+  * Upstart (trước kia dùng trên Ubuntu)
+
+### Nhiệm vụ của init:
+
+* Khởi động các dịch vụ (services), tiến trình cần thiết cho hệ thống.
+* Quản lý runlevel hoặc target (trạng thái hoạt động của hệ thống).
+
+---
+
+## 5. Khởi động dịch vụ và đăng nhập
+
+* Init system khởi động các dịch vụ mạng, dịch vụ bảo mật, giao diện đồ họa, v.v.
+* Cuối cùng, hiển thị màn hình đăng nhập (login prompt hoặc GUI login).
+
+---
+
+## 6. Người dùng đăng nhập và sử dụng hệ thống
+
+* Sau khi đăng nhập, bạn có thể dùng shell hoặc giao diện đồ họa để làm việc.
+
+---
+
+# Tóm tắt các bước
+
+| Bước                   | Mô tả                                 |
+| ---------------------- | ------------------------------------- |
+| 1. Power On & POST     | Kiểm tra phần cứng cơ bản             |
+| 2. Bootloader          | Tải kernel Linux                      |
+| 3. Kernel Loading      | Khởi tạo kernel và mount rootfs       |
+| 4. Init System         | Khởi động dịch vụ, quản lý tiến trình |
+| 5. Dịch vụ & đăng nhập | Chuẩn bị môi trường người dùng        |
+
+---
+
 
 
 
